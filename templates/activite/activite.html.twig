@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Activités{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+      
+    <h1>Ajouter Des Activités</h1>
+
+    {{ form_start(ActiviteForm) }}
+     {{form_row(ActiviteForm.image)}}
+        {{form_row(ActiviteForm.idTypeActivite, {label : "Type D'activité"})}}
+        {{form_row(ActiviteForm.NomActivite, {label: 'Nom activité'})}}
+        {{form_row(ActiviteForm.HeureRdv, {label : 'Date et Heure du rdv pour activité'})}}
+        {{form_row(ActiviteForm.HeureDebutActivite, {label : 'Date et Heure de début de lactivite'})}}
+        {{form_row(ActiviteForm.DateFinActivite, {label : 'Date et Heure de la Fin de Activité'})}}
+        {{ form_row(ActiviteForm.PrixActivite, {label : "Prix Activité"}) }}
+        {{ form_row(ActiviteForm.NomResponsable, {label : 'Nom Responsable'}) }}
+        {{ form_row(ActiviteForm.PrenomResponsable, {label : 'Prenom Responsable'}) }}
+        {{ form_row(ActiviteForm.animation, {label : 'Animation'}) }}
+        {{form_row(ActiviteForm.DescriptionActivite, {label : 'Description Activite'})}}
+
+        <button type="submit" class="btn">Enregistrer l'activite</button>
+    {{ form_end(ActiviteForm) }}
+    
+
+
+{% endblock %}

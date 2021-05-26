@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %} 
+<div>
+  <ul>
+    {% for row in Animation %}
+      <li>{{ animation.image }}</li><br>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

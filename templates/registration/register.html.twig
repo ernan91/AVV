@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} S'inscrire {% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+      
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+        {{form_row(registrationForm.Username, {label : 'Votre username'})}}
+        {{form_row(registrationForm.email, {label : 'Email'})}}
+        {{form_row(registrationForm.NomCompte, {label : 'Nom du compte'})}}
+        {{ form_row(registrationForm.DateNaissCompte, {label : 'Votre date de naissance'}) }}
+        {{ form_row(registrationForm.NumTelCompte, {label : 'Numéro de portable'}) }}
+        {{ form_row(registrationForm.roles,) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password' }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Enregistrer</button>
+    {{ form_end(registrationForm) }}
+    
+
+{% endblock %}

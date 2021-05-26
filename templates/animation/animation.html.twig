@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Animations {% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+      
+    <h1>Ajouter Des Animations</h1>
+
+    {{ form_start(AnimationForm) }}
+        {{form_row(AnimationForm.image)}}
+        {{form_row(AnimationForm.NomAnimation, {label : 'Nom Animation'})}}
+        {{ form_row(AnimationForm.LimiteAge, {label : "Limite age"}) }}
+        {{ form_row(AnimationForm.PrixAnimation, {label : 'Prix animation'}) }}
+        {{ form_row(AnimationForm.NombreDePlace, {label : 'Nombre de place'}) }}
+        {{ form_row(AnimationForm.DescriptionAnimation, {label : 'Description animation'}) }}
+        {{ form_row(AnimationForm.CommentaireAnimation, {label : 'Commentaire sur lanimation'}) }}
+        {{ form_row(AnimationForm.DifficulteAnimation, {label : 'Difficulte de lanimation'}) }}
+
+        <button type="submit" class="btn">Enregistrer l'animation</button>
+    {{ form_end(AnimationForm) }}
+    
+
+{% endblock %}

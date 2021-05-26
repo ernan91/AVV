@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block body %}
+{% for row in activites %}
+ <h2> {{ row.NomActivite }} </h2>
+ <table>
+  <tr> <td> <img src="{{ asset('uploads/images/' ~ row.image) }} "height="300" width="400" style="display:inline-block;"/></br> </td>
+  <td>  {{ row.DescriptionActivite }} 
+ <a href="{{ path('app_Tab1Activite', {'id': row.id}) }}" > En savoir plus </a> </td> 
+ </table>
+{% endfor %}
+{% endblock %}

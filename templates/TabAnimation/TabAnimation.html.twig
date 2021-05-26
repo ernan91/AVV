@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{% for row in animations %}
+    <table class="table">
+   <a href="{{ path('app_TabActivites', {'id': row.id}) }}">
+     <h1> {{ row.NomAnimation }} </h1> 
+    <tr> <td> <img src="{{ asset('uploads/images/' ~ row.image) }}" height="300" width="500" />  </td> 
+   </a>
+   <td> {{ row.DescriptionAnimation}} </td> </tr>
+   </table>
+{% endfor %}
+{% endblock %}

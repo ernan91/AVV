@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Type d'Activités{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+      
+    <h1>Ajouter Des Type d'Activités</h1>
+
+    {{ form_start(TypeActiviteForm) }}
+        {{form_row(TypeActiviteForm.libelle, {label : "libelle"})}}
+
+        <button type="submit" class="btn">Enregistrer le type de l'activite</button>
+    {{ form_end(TypeActiviteForm) }}
+    
+
+{% endblock %}
